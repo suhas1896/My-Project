@@ -47,34 +47,11 @@ public class PhoneActivity extends AppCompatActivity {
             if (phone.isEmpty() || phone.length() < 10) {
                 Toast.makeText(this, "Enter Proper phone Number", Toast.LENGTH_SHORT).show();
                 return;
-            }
-            String extphone = "+91 " + phone;
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                    extphone, 60, TimeUnit.SECONDS, PhoneActivity.this,mcallback
-            );
-
-        });
-        mcallback = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-
-
-            }
-
-            @Override
-            public void onVerificationFailed(@NonNull FirebaseException e) {
-                Log.w("onVerificationFailed", e);
-
-            }
-
-            @Override
-            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                super.onCodeSent(s, forceResendingToken);
-                Intent intent = new Intent(PhoneActivity.this,OtpActivity.class);
-                intent.putExtra("Authcredentials",s);
+            }else {
+                Intent intent = new Intent(PhoneActivity.this, OtpActivity.class);
+                intent.putExtra("Phone_number", phone);
                 startActivity(intent);
             }
-        };
-
+        });
     }
 }
