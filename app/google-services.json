@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641910958980",
+    "project_id": "sharp-d88a5",
+    "storage_bucket": "sharp-d88a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641910958980:android:6941ee722c0a6eabd44bd1",
+        "android_client_info": {
+          "package_name": "com.example.sharp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641910958980-uvg1tkp535pr59ngl4mbuhq7gf7ibo5m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArM-U4luhrGuTWNf2RJdD1ySRIhVYSIPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641910958980-uvg1tkp535pr59ngl4mbuhq7gf7ibo5m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
