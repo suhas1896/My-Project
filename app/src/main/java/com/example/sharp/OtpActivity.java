@@ -19,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,8 +29,10 @@ public class OtpActivity extends AppCompatActivity {
     private EditText editText;
     public  String code_sent;
     private Button button;
+    public String extphone;
     private FirebaseAuth auth;
     private FirebaseUser user;
+    public DatabaseReference rootdatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,8 @@ public class OtpActivity extends AppCompatActivity {
         phone_number = intent.getStringExtra("Phone_number");
         button=findViewById(R.id.login);
         editText=findViewById(R.id.edit);
-        String extphone = "+91" + phone_number;
+        rootdatabase = FirebaseDatabase.getInstance().getReference().child("Phone_number");
+        extphone = "+91" + phone_number;
         send_code (extphone);
         button.setOnClickListener(v -> {
             check_code();
@@ -91,6 +96,8 @@ public class OtpActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Intent intent = new Intent(OtpActivity.this,MainActivity.class);
                     startActivity(intent);
+                    Send_data send_data = new Send_data(extphone);
+                    rootdatabase.push().setValue(send_data);
                 }else {
                     Toast.makeText(OtpActivity.this, "User Logged in Failed", Toast.LENGTH_SHORT).show();
                 }
