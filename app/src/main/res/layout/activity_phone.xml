@@ -1,20 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center">
+    android:padding="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textStyle="bold"
+        android:textColor="#00001a"
+        android:background="@drawable/round_button"
+        android:layout_marginTop="50dp"
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Please Verify Your Phone"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:id="@+id/lottie"
+        android:layout_height="200dp"
+        app:lottie_rawRes="@raw/talking"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:background="#ffffff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:foregroundGravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:phoneNumber="true"
         android:ems="10"
+        android:textColor="#00001a"
+        android:background="@drawable/round_button"
         android:maxLength="10"
         android:layout_gravity="center"
+        android:textSize="20dp"
         android:gravity="center"
         android:id="@+id/edit"
         android:padding="5dp"
@@ -27,8 +58,11 @@
         android:layout_marginTop="20dp"
         android:id="@+id/button"
         android:text="Request Otp"
+        android:textSize="20dp"
+        android:background="@drawable/round_button"
         android:layout_gravity="center"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
+    </LinearLayout>
 </LinearLayout>
 
